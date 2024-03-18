@@ -1,0 +1,46 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "price-tracker"
+version = "0.1.0"
+description = "Asynchronous price tracking application to optimize the purchasing process based on price dynamics."
+authors = ["inmate37 <x.public.profile@gmail.com>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.3"
+python-decouple = "^3.8"
+
+[tool.isort]
+length_sort_sections = ["future", "stdlib"]
+force_grid_wrap = 2
+multi_line_output = 3
+lines_after_imports = 2
+known_drf = ["rest_framework"]
+known_django = ["django"]
+known_first_party = ["apps/"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "DRF", "DJANGO", "FIRSTPARTY", "LOCALFOLDER"]
+import_heading_future = "Future"
+import_heading_stdlib = "Python"
+import_heading_thirdparty = "Third party"
+import_heading_drf = "DRF"
+import_heading_django = "Django"
+import_heading_firstparty = "First party"
+import_heading_localfolder = "Local"
+
+[tool.pylint.messages_control]
+disable = [
+    "C0114",  # Missing module docstring
+    "C0115",  # Missing class docstring
+    "C0116",  # Missing function or method docstring
+    "R0903",  # Too few public methods
+]
+[tool.pylint.format]
+max-line-length = 99
+
+[tool.flake8]
+max-line-length = 99
